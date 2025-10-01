@@ -1,0 +1,6 @@
+{
+  "coverage_options": {
+    "xml_base_dir": "./",
+    "output_dir": "_build/release"
+  }
+}

@@ -1,0 +1,16 @@
+# FROM #{elixir_base_image}#
+FROM elixir:1.16.2-otp-26-alpine
+# ENV USER=#{elixir_user}#
+ENV USER=root
+ENV APP_NAME=ms_login_registration_e
+ENV REPLACE_OS_VARS=true
+WORKDIR /app
+EXPOSE 8083
+RUN apk update && apk upgrade && apk add bash && mkdir -p /app/rel/$APP_NAME/var && chown -R $USER:$USER /app/rel/$APP_NAME/
+COPY $APP_NAME.tar.gz .
+RUN tar -xzf $APP_NAME.tar.gz -C /app/ \
+    && rm -f $APP_NAME.tar.gz \
+    && ls -Rl /app
+VOLUME /app/rel/$APP_NAME/etc
+USER $USER
+ENTRYPOINT exec /app/bin/$APP_NAME start

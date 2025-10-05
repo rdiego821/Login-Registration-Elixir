@@ -49,6 +49,7 @@ defmodule MsLoginRegistrationE.MixProject do
       {:poison, "~> 6.0"},
       {:cors_plug, "~> 3.0"},
       {:timex, "~> 3.7"},
+      {:uuid, "~> 1.1.8"},
       # Test
       {:mock, "~> 0.3", only: :test},
       {:excoveralls, "~> 0.18", only: :test},

@@ -9,11 +9,11 @@ defmodule MsLoginRegistrationE.Infrastructure.EntryPoints.RestController do
     json_decoder: Jason
 
   post "/signup" do
-     send_resp(conn, 201, "Ok signup")
+     send_resp(conn, 201, "Ok")
   end
 
    post "/signin" do
-     send_resp(conn, 200, "Ok signin")
+     send_resp(conn, 200, "Ok")
   end
 
   match _ do
